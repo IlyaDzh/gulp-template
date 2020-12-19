@@ -52,7 +52,7 @@ exports.styles = styles;
 
 const scripts = () => {
     return gulp
-        .src("src/scripts/*.js")
+        .src("src/scripts/**/*.js")
         .pipe(
             babel({
                 presets: ["@babel/preset-env"]
