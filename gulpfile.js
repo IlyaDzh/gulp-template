@@ -88,8 +88,8 @@ exports.copy = copy;
 const paths = () => {
     return gulp
         .src("build/*.html")
-        .pipe(replace("scss", "min.css"))
-        .pipe(replace("js", "min.js"))
+        .pipe(replace(/href=\"(\S*)\.scss\"/gi, 'href="$1.min.css"'))
+        .pipe(replace(/src=\"(\S*)\.js\"/gi, 'src="$1.min.js"'))
         .pipe(gulp.dest("build"));
 };
 
