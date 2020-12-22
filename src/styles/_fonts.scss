@@ -5,7 +5,7 @@
     src: url('../fonts/work-sans-regular.woff2') format('woff2'),
         url('../fonts/work-sans-regular.woff') format('woff'),
         url('../fonts/work-sans-regular.ttf') format('truetype');
-    display: swap;
+    font-display: swap;
 }
 
 @font-face {
@@ -15,7 +15,7 @@
     src: url('../fonts/work-sans-medium.woff2') format('woff2'),
         url('../fonts/work-sans-medium.woff') format('woff'),
         url('../fonts/work-sans-medium.ttf') format('truetype');
-    display: swap;
+    font-display: swap;
 }
 
 @font-face {
@@ -25,5 +25,5 @@
     src: url('../fonts/work-sans-bold.woff2') format('woff2'),
         url('../fonts/work-sans-bold.woff') format('woff'),
         url('../fonts/work-sans-bold.ttf') format('truetype');
-    display: swap;
+    font-display: swap;
 }
