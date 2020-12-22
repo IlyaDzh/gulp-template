@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const nunjucksRender = require("gulp-nunjucks-render");
 const htmlmin = require("gulp-htmlmin");
 const sass = require("gulp-sass");
+const purgecss = require("gulp-purgecss");
 const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
 const terser = require("gulp-terser");
@@ -35,6 +36,11 @@ const styles = () => {
     return gulp
         .src("src/styles/**/*.scss")
         .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+        .pipe(
+            purgecss({
+                content: ["src/**/*.html"]
+            })
+        )
         .pipe(autoprefixer())
         .pipe(
             rename({
@@ -87,7 +93,7 @@ const server = () => {
 };
 
 const watch = () => {
-    gulp.watch("src/*.html", gulp.series(html));
+    gulp.watch("src/*.html", gulp.parallel(html, styles));
     gulp.watch("src/styles/**/*.scss", gulp.series(styles));
     gulp.watch("src/scripts/**/*.js", gulp.series(scripts));
     gulp.watch(["src/fonts/**/*", "src/images/**/*"], gulp.series(copy));
