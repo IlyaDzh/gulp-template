@@ -5,6 +5,6 @@ $btn-yellow-hover: darken($btn-yellow, 5%);
 $btn-blue: #0891b2;
 $btn-blue-hover: darken($btn-blue, 5%);
 
-$lg-width: 992px;
-$md-width: 768px;
-$sm-width: 576px;
+$lg-width: (max-width: 991.95px);
+$md-width: (max-width: 767.95px);
+$sm-width: (max-width: 575.95px);

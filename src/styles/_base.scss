@@ -1,6 +1,19 @@
 @import "./variables";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Work Sans", sans-serif;
     color: $text-main;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+button {
+    cursor: pointer;
 }

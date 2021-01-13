@@ -71,7 +71,7 @@ const scripts = () => {
 
 const copy = () => {
     return gulp
-        .src(["src/fonts/**/*", "src/images/**/*"], {
+        .src(["src/fonts/**/*", "src/images/**/*", "src/styles/css/*"], {
             base: "src"
         })
         .pipe(gulp.dest("build"))
@@ -93,10 +93,13 @@ const server = () => {
 };
 
 const watch = () => {
-    gulp.watch("src/*.html", gulp.parallel(html, styles));
+    gulp.watch("src/**/*.html", gulp.parallel(html, styles));
     gulp.watch("src/styles/**/*.scss", gulp.series(styles));
     gulp.watch("src/scripts/**/*.js", gulp.series(scripts));
-    gulp.watch(["src/fonts/**/*", "src/images/**/*"], gulp.series(copy));
+    gulp.watch(
+        ["src/fonts/**/*", "src/images/**/*", "src/styles/css/*"],
+        gulp.series(copy)
+    );
 };
 
 exports.html = html;
