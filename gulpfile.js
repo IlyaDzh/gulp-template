@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const nunjucksRender = require("gulp-nunjucks-render");
 const htmlmin = require("gulp-htmlmin");
+const cleanCSS = require("gulp-clean-css");
 const sass = require("gulp-sass");
 const purgecss = require("gulp-purgecss");
 const autoprefixer = require("gulp-autoprefixer");
@@ -35,13 +36,15 @@ const html = () => {
 const styles = () => {
     return gulp
         .src("src/styles/**/*.scss")
-        .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+        .pipe(sass().on("error", sass.logError))
         .pipe(
             purgecss({
                 content: ["src/**/*.html"]
             })
         )
         .pipe(autoprefixer())
+        .pipe(gulp.dest("build/styles"))
+        .pipe(cleanCSS())
         .pipe(
             rename({
                 suffix: ".min"
